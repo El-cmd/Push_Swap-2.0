@@ -14,5 +14,18 @@
 # define PUSH_SWAP_H
 
 # include <stdio.h>
-# include <stdlib.h>
+# include <limits.h>
+# include <stdint.h>
 # include <../libft/libft.h>
+
+typedef struct  s_list
+{
+    int content;
+    int i;
+    struct s_list   *next;
+}               t_list;
+
+int	check_isdigit(char *arg);
+int	check_isint(char *arg);
+int	check_double(char **str, int i);
+void	check_arg(char **tab);

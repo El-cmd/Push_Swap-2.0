@@ -15,7 +15,7 @@ int	check_isdigit(char *arg)
 	int	i;
 
 	i = 0;
-	if (arg[i] == '-')
+	if (arg[i] == '-' || arg[i] == '+')
 		i++;
 	while (arg[i])
 	{
@@ -30,7 +30,7 @@ int	check_isint(char *arg)
 {
 	long int	res;
 
-	res = ft_atoi(arg);
+	res = ft_atol(arg);
 	if (res > 2147483647 || res < -2147483648)
 		return (1);
 	return (0);
@@ -43,7 +43,7 @@ int	check_double(char **str, int i)
 	j = i + 1;
 	while (str[j])
 	{
-		if (ft_atoi(str[j]) == ft_atoi(str[i]))
+		if (ft_atol(str[j]) == ft_atol(str[i]))
 			return (1);
 		j++;
 	}
