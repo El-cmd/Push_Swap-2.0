@@ -1,47 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 09:37:32 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 13:11:42 by engo             ###   ########.fr       */
+/*   Created: 2022/09/22 12:54:57 by engo              #+#    #+#             */
+/*   Updated: 2022/09/22 13:08:12 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_dlist	*new_lst(void)
+void	pa(t_dlist *stack_a, t_dlist *stack_b)
 {
-	t_dlist	*lst;
 
-	lst = malloc(sizeof(t_dlist));
-	if (!lst)
-		return (NULL);
-	lst->begin = NULL;
-	lst->end = NULL;
-	lst->len = 0;
-	return (lst);
+	if (stack_b->len == 0)
+		return ;
+	push_front_dlist(stack_a, stack_b->begin->value)
+	pop_front_dlist
 }
 
-int	t_dlist_len(t_dlist *lst)
-{
-	if (empty_lst(lst))
-		return (0);
-	return (lst->len);
-}
-
-int	t_dlist_first(t_dlist *lst)
-{
-	if (empty_lst(lst))
-		exit(1);
-	return (lst->begin->value);
-}
-
-int	t_dlist_last(t_dlist *lst)
-{
-	if (empty_lst(lst))
-		exit(1);
-	return (lst->end->value);
-}

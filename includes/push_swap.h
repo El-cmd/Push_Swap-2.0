@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:09:25 by engo              #+#    #+#             */
-/*   Updated: 2022/09/21 14:13:15 by engo             ###   ########.fr       */
+/*   Updated: 2022/09/22 13:01:50 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 # include <limits.h>
 # include <stdint.h>
 # include <stdlib.h>
-
-typedef enum s_bool
-{
-	false,
-	true
-}			t_Bool;
 
 typedef struct s_node
 {
@@ -45,7 +39,6 @@ typedef struct s_stack
 }				t_stack;
 
 t_dlist	*new_lst(void);
-t_Bool	empty_lst(t_dlist *lst);
 int		t_dlist_len(t_dlist *lst);
 int		t_dlist_last(t_dlist *lst);
 int		t_dlist_first(t_dlist *lst);
@@ -55,5 +48,9 @@ t_dlist	*pop_back_dlist(t_dlist *lst);
 t_dlist	*pop_front_dlist(t_dlist *lst);
 t_dlist	*clear_dlist(t_dlist *lst);
 void	printlist(t_dlist *str);
+void	sa(t_dlist **stack_a, int value);
+void	sb(t_dlist **stack_a, int value);
+void	ss(t_dlist *stack_a, t_dlist *stack_b);
+void	pa(t_dlist *stack_a, t_dlist *stack b);
 
 #endif
