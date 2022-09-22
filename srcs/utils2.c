@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:22:21 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 13:10:57 by engo             ###   ########.fr       */
+/*   Updated: 2022/09/22 13:26:29 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ t_dlist	*pop_front_dlist(t_dlist *lst)
 {
 	t_node	*tmp;
 
-	if (!empty_lst(lst))
-		return (new_lst());
+	if (lst->len == 0)
+		return (lst);
 	if (lst->begin == lst->end)
 	{
 		free(lst);
@@ -110,7 +110,7 @@ t_dlist	*pop_front_dlist(t_dlist *lst)
 
 t_dlist	*clear_dlist(t_dlist *lst)
 {
-	while (empty_lst(lst))
+	while (lst->len == 0)
 		lst = pop_back_dlist(lst);
 	return (new_lst());
 }
