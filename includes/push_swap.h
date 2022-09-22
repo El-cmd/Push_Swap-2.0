@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:09:25 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 13:01:50 by engo             ###   ########.fr       */
+/*   Updated: 2022/09/22 13:23:17 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <limits.h>
 # include <stdint.h>
 # include <stdlib.h>
+# include "../LIBFT/libft.h"
 
 typedef struct s_node
 {
@@ -48,9 +49,9 @@ t_dlist	*pop_back_dlist(t_dlist *lst);
 t_dlist	*pop_front_dlist(t_dlist *lst);
 t_dlist	*clear_dlist(t_dlist *lst);
 void	printlist(t_dlist *str);
-void	sa(t_dlist **stack_a, int value);
-void	sb(t_dlist **stack_a, int value);
+void	sa(t_dlist *stack_a);
+void	sb(t_dlist *stack_a);
 void	ss(t_dlist *stack_a, t_dlist *stack_b);
-void	pa(t_dlist *stack_a, t_dlist *stack b);
+void	pa(t_dlist *stack_a, t_dlist *stack_b);
 
 #endif
