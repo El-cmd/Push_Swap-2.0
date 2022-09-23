@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils3.c                                           :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 14:23:53 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 13:34:28 by engo             ###   ########.fr       */
+/*   Created: 2021/05/26 11:24:20 by engo              #+#    #+#             */
+/*   Updated: 2021/05/26 11:48:13 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	printlist(t_dlist *str)
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_node	*element;
+	void	*str;
 
-	element = str->begin;
-	while (element)
-	{
-		printf("%d\n", element->value);
-		element = element->next;
-	}
+	str = malloc(size * count);
+	if (!str)
+		return (NULL);
+	ft_bzero(str, size * count);
+	return (str);
 }

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 12:54:57 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 14:30:14 by engo             ###   ########.fr       */
+/*   Created: 2021/06/06 15:59:59 by engo              #+#    #+#             */
+/*   Updated: 2021/06/06 16:33:37 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	pa(t_dlist *stack_a, t_dlist *stack_b)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (stack_b->len == 0)
-		return ;
-	push_front_dlist(stack_a, stack_b->begin->value);
-	pop_front_dlist(stack_b);
-	ft_putstr_fd("pa\n", 0);
-}
+	t_list	*head;
+	t_list	*new;
 
-void	pb(t_dlist *stack_a, t_dlist *stack_b)
-{
-	if (stack_a->len == 0)
-		return ;
-	push_front_dlist(stack_b, stack_a->begin->value);
-	pop_front_dlist(stack_a);
-	ft_putstr_fd("pb\n", 0);
+	head = NULL;
+	new = NULL;
+	while (lst)
+	{
+		new = ft_lstnew(f(lst->content));
+		if (!new)
+		{
+			ft_lstclear(&head, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&head, new);
+		lst = lst->next;
+	}
+	return (head);
 }

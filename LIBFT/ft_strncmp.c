@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 12:54:57 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 14:30:14 by engo             ###   ########.fr       */
+/*   Created: 2021/05/26 11:27:40 by engo              #+#    #+#             */
+/*   Updated: 2021/05/27 16:33:40 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	pa(t_dlist *stack_a, t_dlist *stack_b)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (stack_b->len == 0)
-		return ;
-	push_front_dlist(stack_a, stack_b->begin->value);
-	pop_front_dlist(stack_b);
-	ft_putstr_fd("pa\n", 0);
-}
+	size_t	i;
 
-void	pb(t_dlist *stack_a, t_dlist *stack_b)
-{
-	if (stack_a->len == 0)
-		return ;
-	push_front_dlist(stack_b, stack_a->begin->value);
-	pop_front_dlist(stack_a);
-	ft_putstr_fd("pb\n", 0);
+	i = 0;
+	while (((unsigned char)s1[i] == (unsigned char)s2[i]) && (i < n)
+		&& ((unsigned char)s1[i] != '\0') && ((unsigned char)s2[i] != '\0'))
+	{
+		i++;
+	}
+	if (i == n)
+		return (0);
+	else
+		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 12:54:57 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 14:30:14 by engo             ###   ########.fr       */
+/*   Created: 2021/06/06 14:20:31 by engo              #+#    #+#             */
+/*   Updated: 2021/06/06 14:20:32 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	pa(t_dlist *stack_a, t_dlist *stack_b)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (stack_b->len == 0)
-		return ;
-	push_front_dlist(stack_a, stack_b->begin->value);
-	pop_front_dlist(stack_b);
-	ft_putstr_fd("pa\n", 0);
-}
+	unsigned char	*s1_tmp;
+	unsigned char	*s2_tmp;
+	size_t			i;
 
-void	pb(t_dlist *stack_a, t_dlist *stack_b)
-{
-	if (stack_a->len == 0)
-		return ;
-	push_front_dlist(stack_b, stack_a->begin->value);
-	pop_front_dlist(stack_a);
-	ft_putstr_fd("pb\n", 0);
+	s1_tmp = (unsigned char *)s1;
+	s2_tmp = (unsigned char *)s2;
+	i = 0;
+	while (i < n)
+	{
+		if (s1_tmp[i] != s2_tmp[i])
+			return (s1_tmp[i] - s2_tmp[i]);
+		i++;
+	}
+	return (0);
 }

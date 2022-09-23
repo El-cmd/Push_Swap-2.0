@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 12:54:57 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 14:30:14 by engo             ###   ########.fr       */
+/*   Created: 2021/06/06 14:23:25 by engo              #+#    #+#             */
+/*   Updated: 2021/06/06 14:23:27 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	pa(t_dlist *stack_a, t_dlist *stack_b)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	if (stack_b->len == 0)
-		return ;
-	push_front_dlist(stack_a, stack_b->begin->value);
-	pop_front_dlist(stack_b);
-	ft_putstr_fd("pa\n", 0);
-}
+	size_t	i;
+	size_t	j;
+	size_t	tmp;
 
-void	pb(t_dlist *stack_a, t_dlist *stack_b)
-{
-	if (stack_a->len == 0)
-		return ;
-	push_front_dlist(stack_b, stack_a->begin->value);
-	pop_front_dlist(stack_a);
-	ft_putstr_fd("pb\n", 0);
+	j = 0;
+	i = ft_strlen(dst);
+	tmp = ft_strlen(src);
+	if (dstsize <= i)
+		tmp = dstsize + tmp;
+	else
+		tmp = i + tmp;
+	while (src[j] && i + 1 < dstsize)
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
+	}
+	if (i < dstsize)
+		dst[i] = '\0';
+	return (tmp);
 }

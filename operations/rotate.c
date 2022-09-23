@@ -1,46 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 10:33:46 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 14:27:03 by engo             ###   ########.fr       */
+/*   Created: 2022/09/22 14:31:34 by engo              #+#    #+#             */
+/*   Updated: 2022/09/23 11:01:33 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(t_dlist *stack_a)
+void	ra(t_dlist *stack_a)
 {
 	int	tmp;
 
 	tmp = stack_a->begin->value;
-	stack_a->begin->value = stack_a->begin->next->value;
-	stack_a->begin->next->value = tmp;
-	ft_putstr_fd("sa\n", 0);
+	pop_front_dlist(stack_a);
+	push_back_dlist(stack_a, tmp);
+	ft_putstr_fd("ra\n", 0);
 }
 
-void	sb(t_dlist *stack_b)
+void	rb(t_dlist *stack_b)
 {
 	int	tmp;
 
 	tmp = stack_b->begin->value;
-	stack_b->begin->value = stack_b->begin->next->value;
-	stack_b->begin->next->value = tmp;
-	ft_putstr_fd("sb\n", 0);
+	pop_front_dlist(stack_b);
+	push_back_dlist(stack_b, tmp);
+	ft_putstr_fd("rb\n", 0);
 }
 
-void	ss(t_dlist *stack_a, t_dlist *stack_b)
+void	rr(t_dlist *stack_a, t_dlist *stack_b)
 {
 	int	tmp;
 
 	tmp = stack_a->begin->value;
-	stack_a->begin->value = stack_a->begin->next->value;
-	stack_a->begin->next->value = tmp;
+	pop_front_dlist(stack_a);
+	push_back_dlist(stack_a, tmp);
+	ft_putstr_fd("ra\n", 0);
 	tmp = stack_b->begin->value;
-	stack_b->begin->value = stack_b->begin->next->value;
-	stack_b->begin->next->value = tmp;
-	ft_putstr_fd("ss\n", 0);
+	pop_front_dlist(stack_b);
+	push_back_dlist(stack_b, tmp);
+	ft_putstr_fd("rb\n", 0);
 }
