@@ -2,7 +2,7 @@ CC = clang
 AR = ar rcs
 CFLAGS = -Wall -Wextra -Werror -g
 NAME =	push_swap
-LIBFT = ./LIBFT 
+LIBFT = ./LIBFT/MAKEFILE
 SRCS =	./srcs/data.c \
 	./srcs/main.c \
 	./srcs/parsing.c \
@@ -13,6 +13,7 @@ SRCS =	./srcs/data.c \
 
      
 OBJS = ${SRCS:.c=.o}
+
 
 all:	${NAME}
 

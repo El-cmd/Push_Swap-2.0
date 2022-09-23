@@ -6,9 +6,11 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 01:58:32 by engo              #+#    #+#             */
-/*   Updated: 2022/09/21 09:58:34 by engo             ###   ########.fr       */
+/*   Updated: 2022/09/23 14:07:01 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/push_swap.h"
 
 int	check_isdigit(char *arg)
 {
@@ -36,35 +38,43 @@ int	check_isint(char *arg)
 	return (0);
 }
 
-int	check_double(char **str, int i)
+void	ft_duplicate(t_dlist *lst)
 {
-	int	j;
+	t_node	*tmp;
+	t_node	*tmpp;
 
-	j = i + 1;
-	while (str[j])
+	tmp = lst->begin;
+	tmpp = lst->begin->next;
+	while (tmp != tmpp && tmp && tmpp)
 	{
-		if (ft_atol(str[j]) == ft_atol(str[i]))
-			return (1);
-		j++;
+		if (tmp->value == tmpp->value)
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
+		if (tmpp == lst->end)
+		{
+			tmp = tmp->next;
+			tmpp = tmp->next;
+		}
+		else
+			tmpp = tmpp->next;
 	}
-	return (0);
 }
 
-void	check_arg(char **tab)
+int	check_arg(char **tab)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (tab[i])
 	{
-		if (check_isdigit(tab[i]) == 1 || check_isint(tab[i]) == 1
-			|| check_double(tab, i == 1))
+		if (check_isdigit(tab[i]) == 1 || check_isint(tab[i]) == 1)
 		{
-			free_tab(tab);
-			ft_putstr("Error\n");
-			exit(2);
+			ft_putstr_fd("Error\n", 0);
+			return (1);
 		}
 		i++;
 	}
-	return ;
+	return (0);
 }
