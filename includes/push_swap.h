@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:09:25 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 14:32:55 by engo             ###   ########.fr       */
+/*   Updated: 2022/09/23 11:24:07 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,9 @@ void	pa(t_dlist *stack_a, t_dlist *stack_b);
 void	pb(t_dlist *stack_a, t_dlist *stack_b);
 void	ra(t_dlist *stack_a);
 void	rb(t_dlist *stack_b);
+void	rr(t_dlist *stack_a, t_dlist *stack_b);
+void	rra(t_dlist *stack_a);
+void	rrb(t_dlist *stack_b);
+void	rrr(t_dlist *stack_a, t_dlist *stack_b);
 
 #endif
