@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:09:25 by engo              #+#    #+#             */
-/*   Updated: 2022/09/23 14:13:22 by engo             ###   ########.fr       */
+/*   Updated: 2022/09/26 14:36:20 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ int		check_double(char **str, int i);
 int		check_arg(char **tab);
 void	check_duplicate(t_dlist *lst);
 int		push_all_a(char **av, t_dlist *stack_a);
+void	three_sort(t_dlist *stack_a);
+void	two_sort(t_dlist *stack_a);
 
 #endif
