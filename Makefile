@@ -13,7 +13,6 @@ SRCS_LIBFT = ./LIBFT/ft_atol.c \
              ./LIBFT/ft_isascii.c \
              ./LIBFT/ft_strncmp.c \
              ./LIBFT/ft_itoa.c \
-             ./LIBFT/ft_strjoin.c \
              ./LIBFT/ft_bzero.c \
              ./LIBFT/ft_strdup.c \
              ./LIBFT/ft_calloc.c \
@@ -35,8 +34,8 @@ SRCS_LIBFT = ./LIBFT/ft_atol.c \
              ./LIBFT/ft_strlcat.c \
              ./LIBFT/ft_strnstr.c \
              ./LIBFT/ft_strlcpy.c \
-             ./LIBFT/ft_strtrim.c \
-             ./LIBFT/ft_split.c
+             ./LIBFT/ft_split.c \
+             ./LIBFT/ft_strlen.c
 
 SRCS_PUSHSWAP =	./srcs/data.c \
 		./srcs/main.c \
@@ -46,7 +45,8 @@ SRCS_PUSHSWAP =	./srcs/data.c \
 		./operations/rotate.c \
 		./operations/swap.c \
 		./operations/reverse.c \
-		./algo/small_sort.c
+		./algo/small_sort.c \
+        ./srcs/check_arg.c
 
 OBJS_PUSHSWAP = ${SRCS_PUSHSWAP:.c=.o}
 

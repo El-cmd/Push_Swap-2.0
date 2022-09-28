@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 18:41:46 by engo              #+#    #+#             */
-/*   Updated: 2022/09/26 15:53:51 by engo             ###   ########.fr       */
+/*   Updated: 2022/09/27 14:36:57 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	main(int ac, char **av)
 		return (-1);
 	if (all.stack_a == NULL)
 		return (-1);
+	check_duplicate(all.stack_a);
 	if (is_already_sorted(all.stack_a))
 		return (1);
 	if (ac == 5)

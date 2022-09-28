@@ -6,11 +6,13 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:14:40 by engo              #+#    #+#             */
-/*   Updated: 2022/09/26 16:04:02 by engo             ###   ########.fr       */
+/*   Updated: 2022/09/27 14:41:38 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+// void	four_sortsecondpart
 
 void	four_sort(t_dlist *stack_a, t_dlist *stack_b)
 {
@@ -20,17 +22,12 @@ void	four_sort(t_dlist *stack_a, t_dlist *stack_b)
 	pb(stack_a, stack_b);
 	element_2 = stack_b->begin;
 	three_sort(stack_a);
+	pa(stack_a, stack_b);
 	element = stack_a->begin;
-	if (element_2->value < element->value)
-	{
-		pa(stack_a, stack_b);
-		return ;
-	}
 	element = stack_a->begin;
 	if (element_2->value > element->value \
 		&& element_2->value < element->next->value)
 	{
-		pa(stack_a, stack_b);
 		sa(stack_a);
 		return ;
 	}
@@ -38,7 +35,6 @@ void	four_sort(t_dlist *stack_a, t_dlist *stack_b)
 	if (element_2->value > element->next->value \
 		&& element_2->value < element->next->next->value)
 	{
-		pa(stack_a, stack_b);
 		rra(stack_a);
 		sa(stack_a);
 		ra(stack_a);
@@ -48,10 +44,11 @@ void	four_sort(t_dlist *stack_a, t_dlist *stack_b)
 	element = stack_a->begin;
 	if (element_2->value > element->value)
 	{
-		pa(stack_a, stack_b);
 		ra(stack_a);
 		return ;
 	}
+	if (element_2->value < element->value)
+		return ;
 }
 
 void	three_sort_secondpart(t_dlist *stack_a)
