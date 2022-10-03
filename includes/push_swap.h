@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:09:25 by engo              #+#    #+#             */
-/*   Updated: 2022/09/26 15:53:27 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/03 16:27:50 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_node
 {
 	int				value;
+	int				position;
 	struct s_node	*next;
 	struct s_node	*back;
 }				t_node;
@@ -70,5 +71,9 @@ void	three_sort(t_dlist *stack_a);
 void	two_sort(t_dlist *stack_a);
 void	three_sort_secondpart(t_dlist *stack_a);
 void	four_sort(t_dlist *stack_a, t_dlist *stack_b);
+void	five_sort(t_dlist *stack_a, t_dlist *stack_b);
+int		smallest_a(t_dlist *stack_a);
+t_node	*return_smallest(t_dlist *stack_a);
+void	maj_position(t_dlist *stack_a);
 
 #endif

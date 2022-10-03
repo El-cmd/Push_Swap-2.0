@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   parsing_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 12:54:57 by engo              #+#    #+#             */
-/*   Updated: 2022/09/29 16:04:01 by engo             ###   ########.fr       */
+/*   Created: 2022/09/21 14:23:53 by engo              #+#    #+#             */
+/*   Updated: 2022/10/03 16:43:11 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	pa(t_dlist *stack_a, t_dlist *stack_b)
+void	printlist(t_dlist *str)
 {
-	if (stack_b->len == 0)
-		return ;
-	push_front_dlist(stack_a, stack_b->begin->value);
-	pop_front_dlist(stack_b);
-	ft_putstr_fd("pa\n", 1);
-}
+	t_node	*element;
 
-void	pb(t_dlist *stack_a, t_dlist *stack_b)
-{
-	if (stack_a->len == 0)
+	if (!str)
 		return ;
-	push_front_dlist(stack_b, stack_a->begin->value);
-	pop_front_dlist(stack_a);
-	ft_putstr_fd("pb\n", 1);
+	element = str->begin;
+	while (element)
+	{
+		printf("%d\n", element->value);
+		element = element->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 18:41:46 by engo              #+#    #+#             */
-/*   Updated: 2022/09/27 14:36:57 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/03 16:44:36 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ int	is_already_sorted(t_dlist *lst)
 int	main(int ac, char **av)
 {
 	t_stack	all;
-	(void) ac;
 
+	if (ac == 1)
+		return (0);
+	check_arg(av);
 	all.stack_a = new_lst();
 	all.stack_b = new_lst();
 	if (push_all_a(av, all.stack_a))
@@ -55,7 +57,17 @@ int	main(int ac, char **av)
 	check_duplicate(all.stack_a);
 	if (is_already_sorted(all.stack_a))
 		return (1);
+	if (ac == 3)
+		two_sort(all.stack_a);
+	if (ac == 4)
+		three_sort(all.stack_a);
 	if (ac == 5)
 		four_sort(all.stack_a, all.stack_b);
+	if (ac == 6)
+		five_sort(all.stack_a, all.stack_b);
 	printlist(all.stack_a);
+	printf("\ndebut = %d\n", all.stack_a->begin->position);
+	printf("avant fin = %d\n", all.stack_a->end->back->position);
+	printf("fin =  %d\n", all.stack_a->end->position);
+	exit (0);
 }

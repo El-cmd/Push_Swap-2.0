@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 10:33:46 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 14:27:03 by engo             ###   ########.fr       */
+/*   Updated: 2022/09/29 16:04:26 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	sa(t_dlist *stack_a)
 	tmp = stack_a->begin->value;
 	stack_a->begin->value = stack_a->begin->next->value;
 	stack_a->begin->next->value = tmp;
-	ft_putstr_fd("sa\n", 0);
+	ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_dlist *stack_b)
@@ -29,7 +29,7 @@ void	sb(t_dlist *stack_b)
 	tmp = stack_b->begin->value;
 	stack_b->begin->value = stack_b->begin->next->value;
 	stack_b->begin->next->value = tmp;
-	ft_putstr_fd("sb\n", 0);
+	ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_dlist *stack_a, t_dlist *stack_b)
@@ -42,5 +42,5 @@ void	ss(t_dlist *stack_a, t_dlist *stack_b)
 	tmp = stack_b->begin->value;
 	stack_b->begin->value = stack_b->begin->next->value;
 	stack_b->begin->next->value = tmp;
-	ft_putstr_fd("ss\n", 0);
+	ft_putstr_fd("ss\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 01:58:32 by engo              #+#    #+#             */
-/*   Updated: 2022/09/23 14:11:46 by engo             ###   ########.fr       */
+/*   Updated: 2022/09/29 16:04:58 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	check_arg(char **tab)
 	{
 		if (check_isdigit(tab[i]) == 1 || check_isint(tab[i]) == 1)
 		{
-			ft_putstr_fd("Error\n", 0);
+			ft_putstr_fd("Error\n", 1);
 			return (1);
 		}
 		i++;

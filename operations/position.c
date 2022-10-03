@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils3.c                                           :+:      :+:    :+:   */
+/*   position.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 14:23:53 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 13:34:28 by engo             ###   ########.fr       */
+/*   Created: 2022/10/03 16:12:15 by engo              #+#    #+#             */
+/*   Updated: 2022/10/03 17:18:58 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	printlist(t_dlist *str)
+void	maj_position(t_dlist *stack_a)
 {
-	t_node	*element;
+	t_node	*tmp;
+	int		i;
 
-	element = str->begin;
-	while (element)
+	i = 0;
+	tmp = stack_a->begin;
+	while (tmp)
 	{
-		printf("%d\n", element->value);
-		element = element->next;
+		tmp->position = i;
+		i++;
+		tmp = tmp->next;
 	}
 }
+lseek

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:22:21 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 13:26:29 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/03 16:27:31 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	push_back_dlist(t_dlist *lst, int i)
 		lst->end = element;
 	}
 	lst->len++;
+	element->position = lst->len;
+	maj_position(lst);
 	return ;
 }
 
@@ -61,6 +63,7 @@ void	push_front_dlist(t_dlist *lst, int i)
 		lst->begin = element;
 	}
 	lst->len++;
+	maj_position(lst);
 	return ;
 }
 
@@ -83,6 +86,8 @@ t_dlist	*pop_back_dlist(t_dlist *lst)
 	free(tmp);
 	tmp = NULL;
 	lst->len--;
+	lst->end->position = lst->len;
+	maj_position(lst);
 	return (lst);
 }
 
@@ -105,6 +110,7 @@ t_dlist	*pop_front_dlist(t_dlist *lst)
 	free(tmp);
 	tmp = NULL;
 	lst->len--;
+	maj_position(lst);
 	return (lst);
 }
 
