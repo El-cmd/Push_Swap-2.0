@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 12:54:57 by engo              #+#    #+#             */
-/*   Updated: 2022/09/29 16:04:01 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/05 22:44:31 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,26 @@
 
 void	pa(t_dlist *stack_a, t_dlist *stack_b)
 {
+	int	i;
+
+	i = stack_b->begin->index;
 	if (stack_b->len == 0)
 		return ;
 	push_front_dlist(stack_a, stack_b->begin->value);
+	stack_a->begin->index = i;
 	pop_front_dlist(stack_b);
 	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_dlist *stack_a, t_dlist *stack_b)
 {
+	int	i;
+
+	i = stack_a->begin->index;
 	if (stack_a->len == 0)
 		return ;
 	push_front_dlist(stack_b, stack_a->begin->value);
+	stack_b->begin->index = i;
 	pop_front_dlist(stack_a);
 	ft_putstr_fd("pb\n", 1);
 }

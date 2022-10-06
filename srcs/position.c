@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   position.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:12:15 by engo              #+#    #+#             */
-/*   Updated: 2022/10/03 17:18:58 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/05 22:57:51 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,43 @@ void	maj_position(t_dlist *stack_a)
 		tmp = tmp->next;
 	}
 }
-lseek
+
+void	assign_index_s(t_dlist *sa, t_node *t, t_node *h, int len)
+{
+	int	value;
+
+	while (len > 0)
+	{
+		t = sa->begin;
+		value = INT_MIN;
+		h = NULL;
+		while (t)
+		{
+			if (t->value == INT_MIN && t->index == 0)
+				t->index = 1;
+			if (t->value > value && t->index == 0)
+			{
+				value = t->value;
+				h = t;
+				t = sa->begin;
+			}
+			else
+				t = t->next;
+		}
+		if (h != NULL)
+			h->index = len;
+		len--;
+	}
+}
+
+void	assign_index(t_dlist *sa)
+{
+	t_node	*t;
+	t_node	*h;
+	int		len;
+
+	h = NULL;
+	t = sa->begin;
+	len = sa->len;
+	assign_index_s(sa, t, h, len);
+}
