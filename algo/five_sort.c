@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   five_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:24:11 by engo              #+#    #+#             */
-/*   Updated: 2022/09/29 16:11:30 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/07 01:17:29 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ t_node	*return_smallest(t_dlist *stack_a)
 
 void	five_sort_secondpart(t_dlist *stack_a, t_dlist *stack_b)
 {
-	rra(stack_a);
-	rra(stack_a);
+	rra(stack_a, stack_b);
+	rra(stack_a, stack_b);
 	pb(stack_a, stack_b);
 }
 
@@ -38,18 +38,18 @@ void	five_sort(t_dlist *stack_a, t_dlist *stack_b)
 		pb(stack_a, stack_b);
 	else if (tmp == stack_a->end)
 	{
-		rra(stack_a);
+		rra(stack_a, stack_b);
 		pb(stack_a, stack_b);
 	}
 	else if (tmp == stack_a->begin->next)
 	{
-		sa(stack_a);
+		sa(stack_a, stack_b);
 		pb(stack_a, stack_b);
 	}
 	else if (tmp == stack_a->end->back->back)
 	{
-		ra(stack_a);
-		ra(stack_a);
+		ra(stack_a, stack_b);
+		ra(stack_a, stack_b);
 		pb(stack_a, stack_b);
 	}
 	else if (tmp == stack_a->end->back)

@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 18:41:46 by engo              #+#    #+#             */
-/*   Updated: 2022/10/05 23:46:35 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/07 16:10:51 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	push_all_a(char **av, t_dlist *stack_a)
 		if (check_arg(av))
 			return (1);
 		push_back_dlist(stack_a, ft_atol(av[i]));
+		stack_a->end->target_pos = -1;
 		i++;
 	}
 	return (0);
@@ -59,17 +60,22 @@ int	main(int ac, char **av)
 		return (1);
 	assign_index(all.stack_a);
 	if (ac == 3)
-		two_sort(all.stack_a);
+		two_sort(all.stack_a, all.stack_b);
 	if (ac == 4)
-		three_sort(all.stack_a);
+		three_sort(all.stack_a, all.stack_b);
 	if (ac == 5)
 		four_sort(all.stack_a, all.stack_b);
 	if (ac == 6)
 		five_sort(all.stack_a, all.stack_b);
 	median_index(ac, all.stack_a, all.stack_b);
+	find_target(all.stack_a, all.stack_b);
 	printf("\n");
 	printlist(all.stack_a);
 	printf("\n");
 	printlist(all.stack_b);
+	printf("\n");
+	
+	printf("position = %d\n", all.stack_a->begin->position);
+	printf("target_pos = %d\n", all.stack_b->begin->next->target_pos);
 	exit(0);
 }

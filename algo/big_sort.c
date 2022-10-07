@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:28:41 by vloth             #+#    #+#             */
-/*   Updated: 2022/10/06 14:59:06 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/07 16:08:13 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	median_index(int ac, t_dlist *stack_a, t_dlist *stack_b)
 	{
 		if (tmp->index > i)
 		{
-			ra(stack_a);
+			ra(stack_a, stack_b);
 			p++;
 		}
 		else
@@ -33,15 +33,62 @@ void	median_index(int ac, t_dlist *stack_a, t_dlist *stack_b)
 	}
 	while (stack_a->len > 3)
 		pb(stack_a, stack_b);
-	three_sort(stack_a);
+	three_sort(stack_a, stack_b);
 }
+
+void	find_target_sup(t_dlist *stack_a, t_node *tmpb)
+{
+	t_node	*tmpa;
+	
+	tmpa = return_biggest(stack_a);
+	if (tmpa->index < tmpb->index)
+	{
+		tmpa = return_smallest(stack_a);
+		tmpb->target_pos = tmpa->position;
+	}
+}
+
+int		is_index_sup(t_dlist *stack_a, t_node *tmpb)
+{
+	t_node *tmpa;
+
+	tmpa = stack_a->begin;
+	while (tmpa)
+	{
+		if (tmpb->index < tmpa->index)
+			return (0);
+		tmpa = tmpa->next;
+	}
+	find_target_sup(stack_a, tmpb);
+	return (1);
+}
+
 
 void	find_target(t_dlist *stack_a, t_dlist *stack_b)
 {
 	t_node *tmpa;
 	t_node *tmpb;
+	int		index_min;
 
 	tmpa = stack_a->begin;
+	if (stack_b->len == 0)
+		return ;
 	tmpb = stack_b->begin;
-	
+	while (tmpb)
+	{
+		while (is_index_sup(stack_a, tmpb))
+			tmpb = tmpb->next;
+		index_min = INT_MAX;
+			while (tmpa)
+			{
+				if (tmpb->index < tmpa->index && tmpa->index < index_min)
+				{
+					tmpb->target_pos = tmpa->position;
+					index_min = tmpa->index;
+				}
+				tmpa = tmpa->next;
+			}
+		tmpb = tmpb->next;
+		tmpa = stack_a->begin;
+	}
 }

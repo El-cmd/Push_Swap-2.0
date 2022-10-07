@@ -6,13 +6,13 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:18:07 by engo              #+#    #+#             */
-/*   Updated: 2022/10/05 22:41:01 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/07 01:13:54 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rra(t_dlist *stack_a)
+void	rra(t_dlist *stack_a, t_dlist *stack_b)
 {
 	int	tmp;
 	int	i;
@@ -22,6 +22,7 @@ void	rra(t_dlist *stack_a)
 	pop_back_dlist(stack_a);
 	push_front_dlist(stack_a, tmp);
 	stack_a->begin->index = i;
+	find_target(stack_a, stack_b);
 	ft_putstr_fd("rra\n", 1);
 }
 
@@ -53,5 +54,6 @@ void	rrr(t_dlist *stack_a, t_dlist *stack_b)
 	pop_back_dlist(stack_b);
 	push_front_dlist(stack_b, tmp);
 	stack_b->begin->index = i;
+	find_target(stack_a, stack_b);
 	ft_putstr_fd("rrr\n", 1);
 }
