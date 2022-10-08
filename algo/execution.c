@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 13:11:55 by vloth             #+#    #+#             */
-/*   Updated: 2022/10/08 14:22:11 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/08 16:13:35 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,3 +71,33 @@ t_node	*find_the_smallest_cost(t_dlist *stack_b)
 	return (tmpb);
 }
 
+void	final(t_dlist *stack_a, t_dlist *stack_b)
+{
+	t_node	*tmp;
+
+	tmp = return_smallest(stack_a);
+	while (tmp->position != 0)
+	{
+		if (tmp->position < (stack_a->len / 2))
+			ra(stack_a, stack_b);
+		else
+			rra(stack_a, stack_b);
+		tmp = return_smallest(stack_a);
+	}
+}
+
+void	execution(t_dlist *stack_a, t_dlist *stack_b)
+{
+	t_node	*tmpa;
+	t_node	*tmpb;
+
+	while (stack_b->len > 0)
+	{
+		tmpb = find_the_smallest_cost(stack_b);
+		tmpa = find_peer(tmpb, stack_a);
+		if (tmpa != stack_a->begin || tmpb != stack_b->begin)
+			final_execution(tmpa, tmpb, stack_a, stack_b);
+		else
+			pa(stack_a, stack_b);
+	}
+}

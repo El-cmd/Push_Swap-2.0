@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:24:11 by engo              #+#    #+#             */
-/*   Updated: 2022/10/07 01:17:29 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/08 16:12:29 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,30 @@ void	five_sort(t_dlist *stack_a, t_dlist *stack_b)
 		five_sort_secondpart(stack_a, stack_b);
 	four_sort(stack_a, stack_b);
 	pa(stack_a, stack_b);
+}
+
+void	final_execution(t_node *tmpa, t_node *tmpb, t_dlist *a, t_dlist *b)
+{
+	if (tmpb->cost_b < 0 && tmpa->cost_a < 0)
+		rrr(a, b);
+	else if (tmpb->cost_b > 0 && tmpa->cost_a > 0)
+		rr(a, b);
+	else if (tmpb->cost_b < 0 && tmpa->cost_a > 0)
+	{
+		rrb(a, b);
+		ra(a, b);
+	}
+	else if (tmpb->cost_b > 0 && tmpa->cost_a < 0)
+	{
+		rb(a, b);
+		rra(a, b);
+	}
+	else if (tmpb->cost_b == 0 && tmpa->cost_a < 0)
+		rra(a, b);
+	else if (tmpb->cost_b == 0 && tmpa->cost_a > 0)
+		ra(a, b);
+	else if (tmpb->cost_b < 0 && tmpa->cost_a == 0)
+		rrb(a, b);
+	else if (tmpb->cost_b > 0 && tmpa->cost_a == 0)
+		rb(a, b);
 }

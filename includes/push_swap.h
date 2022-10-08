@@ -87,5 +87,8 @@ t_node	*return_biggest(t_dlist *stack_a);
 void	find_cost_b(t_dlist *stack_b);
 void	find_cost_a(t_dlist *stack_a);
 void	find_total_cost(t_dlist *stack_a, t_dlist *stack_b);
+void	execution(t_dlist *stack_a, t_dlist *stack_b);
+void	final(t_dlist *stack_a, t_dlist *stack_b);
+void	final_execution(t_node *tmpa, t_node *tmpb, t_dlist *a, t_dlist *b);
 
 #endif
