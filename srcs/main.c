@@ -68,14 +68,5 @@ int	main(int ac, char **av)
 	if (ac == 6)
 		five_sort(all.stack_a, all.stack_b);
 	median_index(ac, all.stack_a, all.stack_b);
-	find_target(all.stack_a, all.stack_b);
-	printf("\n");
-	printlist(all.stack_a);
-	printf("\n");
-	printlist(all.stack_b);
-	printf("\n");
-	
-	printf("position = %d\n", all.stack_a->begin->position);
-	printf("target_pos = %d\n", all.stack_b->begin->next->target_pos);
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:12:15 by engo              #+#    #+#             */
-/*   Updated: 2022/10/07 15:57:00 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/08 12:17:50 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	assign_index(t_dlist *sa)
 	len = sa->len;
 	assign_index_s(sa, t, h, len);
 }
-
 
 int	biggest(t_dlist *stack_a)
 {

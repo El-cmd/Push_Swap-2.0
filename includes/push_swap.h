@@ -25,6 +25,8 @@ typedef struct s_node
 	int				position;
 	int				index;
 	int				target_pos;
+	int				cost_a;
+	int				cost_b;
 	struct s_node	*next;
 	struct s_node	*back;
 }				t_node;
@@ -70,7 +72,7 @@ int		check_double(char **str, int i);
 int		check_arg(char **tab);
 void	check_duplicate(t_dlist *lst);
 int		push_all_a(char **av, t_dlist *stack_a);
-void	three_sort(t_dlist *stack_a,t_dlist *stack_b);
+void	three_sort(t_dlist *stack_a, t_dlist *stack_b);
 void	two_sort(t_dlist *stack_a, t_dlist *stack_b);
 void	three_sort_secondpart(t_dlist *stack_a, t_dlist *stack_b);
 void	four_sort(t_dlist *stack_a, t_dlist *stack_b);
@@ -81,5 +83,7 @@ void	assign_index(t_dlist *sa);
 void	median_index(int ac, t_dlist *stack_a, t_dlist *stack_b);
 void	find_target(t_dlist *stack_a, t_dlist *stack_b);
 t_node	*return_biggest(t_dlist *stack_a);
+void	find_cost_b(t_dlist *stack_b);
+void	find_cost_a(t_dlist *stack_a);
 
 #endif

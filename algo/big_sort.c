@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:28:41 by vloth             #+#    #+#             */
-/*   Updated: 2022/10/07 23:59:23 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/08 12:46:14 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	median_index(int ac, t_dlist *stack_a, t_dlist *stack_b)
 int	find_target_sup(t_dlist *stack_a, t_node *tmpb)
 {
 	t_node	*tmpa;
-	
+
 	tmpa = return_biggest(stack_a);
 	if (tmpa->index < tmpb->index)
 	{
@@ -52,8 +52,8 @@ int	find_target_sup(t_dlist *stack_a, t_node *tmpb)
 
 void	find_target(t_dlist *stack_a, t_dlist *stack_b)
 {
-	t_node *tmpa;
-	t_node *tmpb;
+	t_node	*tmpa;
+	t_node	*tmpb;
 	int		index_min;
 
 	tmpa = stack_a->begin;
@@ -65,21 +65,52 @@ void	find_target(t_dlist *stack_a, t_dlist *stack_b)
 		while (find_target_sup(stack_a, tmpb))
 			tmpb = tmpb->next;
 		index_min = INT_MAX;
-			while (tmpa)
+		while (tmpa)
+		{
+			if (tmpb->index < tmpa->index && tmpa->index < index_min)
 			{
-				if (tmpb->index < tmpa->index && tmpa->index < index_min)
-				{
-					tmpb->target_pos = tmpa->position;
-					index_min = tmpa->index;
-				}
-				tmpa = tmpa->next;
+				tmpb->target_pos = tmpa->position;
+				index_min = tmpa->index;
 			}
+			tmpa = tmpa->next;
+		}
 		tmpb = tmpb->next;
 		tmpa = stack_a->begin;
 	}
 }
 
-void	find_cost()
+void	find_cost_b(t_dlist *stack_b)
 {
+	t_node	*tmpb;
+	int		median;
 
+	if (stack_b->len == 0)
+		return ;
+	tmpb = stack_b->begin;
+	median = stack_b->len / 2;
+	while (tmpb)
+	{
+		if (tmpb->position < median)
+			tmpb->cost_b = tmpb->position;
+		else
+			tmpb->cost_b = tmpb->position - stack_b->len;
+		tmpb = tmpb->next;
+	}
+}
+
+void	find_cost_a(t_dlist *stack_a)
+{
+	t_node	*tmpa;
+	int		median;
+
+	tmpa = stack_a->begin;
+	median = stack_a->len / 2;
+	while (tmpa)
+	{
+		if (tmpa->position < median)
+			tmpa->cost_a = tmpa->position;
+		else
+			tmpa->cost_a = tmpa->position - stack_a->len;
+		tmpa = tmpa->next;
+	}
 }
