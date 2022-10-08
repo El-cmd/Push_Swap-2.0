@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:28:41 by vloth             #+#    #+#             */
-/*   Updated: 2022/10/07 21:01:27 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/07 23:59:23 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,9 @@ void	find_target(t_dlist *stack_a, t_dlist *stack_b)
 		tmpb = tmpb->next;
 		tmpa = stack_a->begin;
 	}
+}
+
+void	find_cost()
+{
+
 }
