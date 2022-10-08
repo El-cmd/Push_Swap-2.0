@@ -25,6 +25,7 @@ void	pa(t_dlist *stack_a, t_dlist *stack_b)
 	find_target(stack_a, stack_b);
 	find_cost_a(stack_a);
 	find_cost_b(stack_b);
+	find_total_cost(stack_a, stack_b);
 	ft_putstr_fd("pa\n", 1);
 }
 
@@ -41,5 +42,6 @@ void	pb(t_dlist *stack_a, t_dlist *stack_b)
 	find_target(stack_a, stack_b);
 	find_cost_a(stack_a);
 	find_cost_b(stack_b);
+	find_total_cost(stack_a, stack_b);
 	ft_putstr_fd("pb\n", 1);
 }

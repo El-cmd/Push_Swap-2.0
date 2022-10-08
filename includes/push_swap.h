@@ -27,6 +27,7 @@ typedef struct s_node
 	int				target_pos;
 	int				cost_a;
 	int				cost_b;
+	int				total_cost;
 	struct s_node	*next;
 	struct s_node	*back;
 }				t_node;
@@ -56,15 +57,15 @@ void	push_back_dlist(t_dlist *lst, int i);
 void	push_front_dlist(t_dlist *lst, int i);
 void	printlist(t_dlist *str);
 void	sa(t_dlist *stack_a, t_dlist *stack_b);
-void	sb(t_dlist *stack_a);
+void	sb(t_dlist *stack_a, t_dlist *stack_b);
 void	ss(t_dlist *stack_a, t_dlist *stack_b);
 void	pa(t_dlist *stack_a, t_dlist *stack_b);
 void	pb(t_dlist *stack_a, t_dlist *stack_b);
 void	ra(t_dlist *stack_a, t_dlist *stack_b);
-void	rb(t_dlist *stack_b);
+void	rb(t_dlist *stack_a, t_dlist *stack_b);
 void	rr(t_dlist *stack_a, t_dlist *stack_b);
 void	rra(t_dlist *stack_a, t_dlist *stack_b);
-void	rrb(t_dlist *stack_b);
+void	rrb(t_dlist *stack_a, t_dlist *stack_b);
 void	rrr(t_dlist *stack_a, t_dlist *stack_b);
 int		check_isdigit(char *arg);
 int		check_isint(char *arg);
@@ -85,5 +86,6 @@ void	find_target(t_dlist *stack_a, t_dlist *stack_b);
 t_node	*return_biggest(t_dlist *stack_a);
 void	find_cost_b(t_dlist *stack_b);
 void	find_cost_a(t_dlist *stack_a);
+void	find_total_cost(t_dlist *stack_a, t_dlist *stack_b);
 
 #endif

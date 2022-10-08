@@ -49,7 +49,8 @@ SRCS_PUSHSWAP =	./srcs/data.c \
         ./srcs/check_arg.c \
         ./algo/five_sort.c \
         ./srcs/position.c \
-        ./algo/big_sort.c
+        ./algo/big_sort.c \
+        ./algo/execution.c
 
 OBJS_PUSHSWAP = ${SRCS_PUSHSWAP:.c=.o}
 

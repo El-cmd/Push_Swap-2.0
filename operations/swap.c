@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 10:33:46 by engo              #+#    #+#             */
-/*   Updated: 2022/10/08 12:50:01 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/08 13:53:43 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ void	sa(t_dlist *stack_a, t_dlist *stack_b)
 	maj_position(stack_a);
 	find_target(stack_a, stack_b);
 	find_cost_a(stack_a);
+	find_total_cost(stack_a, stack_b);
 	ft_putstr_fd("sa\n", 1);
 }
 
-void	sb(t_dlist *stack_b)
+void	sb(t_dlist *stack_a, t_dlist *stack_b)
 {
 	int	tmp;
 	int	i;
@@ -42,6 +43,7 @@ void	sb(t_dlist *stack_b)
 	stack_b->begin->next->value = tmp;
 	maj_position(stack_b);
 	find_cost_b(stack_b);
+	find_total_cost(stack_a, stack_b);
 	ft_putstr_fd("sb\n", 1);
 }
 
@@ -67,5 +69,6 @@ void	ss(t_dlist *stack_a, t_dlist *stack_b)
 	find_target(stack_a, stack_b);
 	find_cost_a(stack_a);
 	find_cost_b(stack_b);
+	find_total_cost(stack_a, stack_b);
 	ft_putstr_fd("ss\n", 1);
 }

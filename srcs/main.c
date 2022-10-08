@@ -68,5 +68,9 @@ int	main(int ac, char **av)
 	if (ac == 6)
 		five_sort(all.stack_a, all.stack_b);
 	median_index(ac, all.stack_a, all.stack_b);
+	//printlist(all.stack_a);
+	//printf("\n");
+	//printlist(all.stack_b);
+	//printf("cout total = %d\n", all.stack_b->end->total_cost);
 	exit(0);
 }
