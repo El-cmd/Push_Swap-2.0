@@ -73,9 +73,7 @@ int	main(int ac, char **av)
 		execution(all.stack_a, all.stack_b);
 		final(all.stack_a, all.stack_b);
 	}
-	printlist(all.stack_a);
-	printf("\n");
-	printlist(all.stack_b);
+	//printlist(all.stack_a);
 	//printf("cout total = %d\n", all.stack_b->end->total_cost);
 	exit(0);
 }

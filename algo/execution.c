@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 13:11:55 by vloth             #+#    #+#             */
-/*   Updated: 2022/10/08 16:13:35 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/08 16:59:14 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_node	*find_peer(t_node *tmpb, t_dlist *stack_a)
 {
 	t_node	*tmpa;
 
+	if (tmpb == NULL)
+		return (NULL);
 	tmpa = stack_a->begin;
 	while (tmpa)
 	{

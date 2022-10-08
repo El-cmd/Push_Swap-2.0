@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:24:11 by engo              #+#    #+#             */
-/*   Updated: 2022/10/08 16:12:29 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/08 17:11:57 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,15 @@ void	five_sort(t_dlist *stack_a, t_dlist *stack_b)
 
 void	final_execution(t_node *tmpa, t_node *tmpb, t_dlist *a, t_dlist *b)
 {
-	if (tmpb->cost_b < 0 && tmpa->cost_a < 0)
+	if (tmpb->cost_b == 0 && tmpa->cost_a < 0)
+		rra(a, b);
+	else if (tmpb->cost_b == 0 && tmpa->cost_a > 0)
+		ra(a, b);
+	else if (tmpb->cost_b < 0 && tmpa->cost_a == 0)
+		rrb(a, b);
+	else if (tmpb->cost_b > 0 && tmpa->cost_a == 0)
+		rb(a, b);
+	else if (tmpb->cost_b < 0 && tmpa->cost_a < 0)
 		rrr(a, b);
 	else if (tmpb->cost_b > 0 && tmpa->cost_a > 0)
 		rr(a, b);
@@ -74,12 +82,4 @@ void	final_execution(t_node *tmpa, t_node *tmpb, t_dlist *a, t_dlist *b)
 		rb(a, b);
 		rra(a, b);
 	}
-	else if (tmpb->cost_b == 0 && tmpa->cost_a < 0)
-		rra(a, b);
-	else if (tmpb->cost_b == 0 && tmpa->cost_a > 0)
-		ra(a, b);
-	else if (tmpb->cost_b < 0 && tmpa->cost_a == 0)
-		rrb(a, b);
-	else if (tmpb->cost_b > 0 && tmpa->cost_a == 0)
-		rb(a, b);
 }
