@@ -23,6 +23,7 @@ int	push_all_a(char **av, t_dlist *stack_a)
 			return (1);
 		push_back_dlist(stack_a, ft_atol(av[i]));
 		stack_a->end->target_pos = -1;
+		stack_a->end->index = 0;
 		i++;
 	}
 	return (0);
@@ -61,11 +62,11 @@ int	main(int ac, char **av)
 	assign_index(all.stack_a);
 	if (ac == 3)
 		two_sort(all.stack_a, all.stack_b);
-	if (ac == 4)
+	else if (ac == 4)
 		three_sort(all.stack_a, all.stack_b);
-	if (ac == 5)
+	else if (ac == 5)
 		four_sort(all.stack_a, all.stack_b);
-	if (ac == 6)
+	else if (ac == 6)
 		five_sort(all.stack_a, all.stack_b);
 	else
 	{
@@ -75,7 +76,7 @@ int	main(int ac, char **av)
 	}
 	//printlist(all.stack_a);
 	//printf("cout total = %d\n", all.stack_b->end->total_cost);
-	free(all.stack_a);
-	free(all.stack_b);
+	//free(all.stack_a);
+	//free(all.stack_b);
 	exit(0);
 }

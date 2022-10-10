@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:31:34 by engo              #+#    #+#             */
-/*   Updated: 2022/10/08 17:16:47 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/10 22:55:47 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	rr(t_dlist *stack_a, t_dlist *stack_b)
 	pop_front_dlist(stack_a);
 	push_back_dlist(stack_a, tmp);
 	stack_a->end->index = i;
-	ft_putstr_fd("ra\n", 1);
 	tmp = stack_b->begin->value;
 	i = stack_b->begin->index;
 	pop_front_dlist(stack_b);
@@ -65,5 +64,5 @@ void	rr(t_dlist *stack_a, t_dlist *stack_b)
 	find_cost_a(stack_a);
 	find_cost_b(stack_b);
 	find_total_cost(stack_a, stack_b);
-	ft_putstr_fd("rb\n", 1);
+	ft_putstr_fd("rr\n", 1);
 }
