@@ -47,7 +47,7 @@ typedef struct s_stack
 
 t_dlist	*new_lst(void);
 t_dlist	*pop_back_dlist(t_dlist *lst);
-t_dlist	*pop_front_dlist(t_dlist *lst);
+t_node	*pop_front_dlist(t_dlist *lst);
 t_dlist	*clear_dlist(t_dlist *lst);
 t_node	*return_smallest(t_dlist *stack_a);
 int		t_dlist_len(t_dlist *lst);
@@ -90,5 +90,6 @@ void	find_total_cost(t_dlist *stack_a, t_dlist *stack_b);
 void	execution(t_dlist *stack_a, t_dlist *stack_b);
 void	final(t_dlist *stack_a, t_dlist *stack_b);
 void	final_execution(t_node *tmpa, t_node *tmpb, t_dlist *a, t_dlist *b);
+void	free_list(t_dlist *la);
 
 #endif

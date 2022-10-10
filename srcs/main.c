@@ -76,7 +76,7 @@ int	main(int ac, char **av)
 	}
 	//printlist(all.stack_a);
 	//printf("cout total = %d\n", all.stack_b->end->total_cost);
-	//free(all.stack_a);
-	//free(all.stack_b);
+	free_list(all.stack_a);
+	free_list(all.stack_b);
 	exit(0);
 }

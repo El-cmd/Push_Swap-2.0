@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:22:21 by engo              #+#    #+#             */
-/*   Updated: 2022/10/03 16:27:31 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/10 23:33:04 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,27 +91,27 @@ t_dlist	*pop_back_dlist(t_dlist *lst)
 	return (lst);
 }
 
-t_dlist	*pop_front_dlist(t_dlist *lst)
+
+t_node	*pop_front_dlist(t_dlist *l)
 {
 	t_node	*tmp;
 
-	if (lst->len == 0)
-		return (lst);
-	if (lst->begin == lst->end)
+	if (l->len > 1)
 	{
-		free(lst);
-		return (new_lst());
+		tmp = l->begin;
+		l->begin = l->begin->next;
+		l->begin->back = NULL;
+		l->len--;
 	}
-	tmp = lst->begin;
-	lst->begin = lst->begin->next;
-	lst->begin->back = NULL;
-	tmp->next = NULL;
-	tmp->back = NULL;
-	free(tmp);
-	tmp = NULL;
-	lst->len--;
-	maj_position(lst);
-	return (lst);
+	else
+	{
+		tmp = l->begin;
+		l->begin = NULL;
+		l->end = NULL;
+		l->len = 0;
+	}
+	maj_position(l);
+	return (tmp);
 }
 
 t_dlist	*clear_dlist(t_dlist *lst)

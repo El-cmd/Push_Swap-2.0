@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:23:53 by engo              #+#    #+#             */
-/*   Updated: 2022/10/03 16:43:11 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/10 23:35:18 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,17 @@ void	printlist(t_dlist *str)
 		printf("%d\n", element->value);
 		element = element->next;
 	}
+}
+
+void	free_list(t_dlist *la)
+{
+	t_node	*tmp;
+
+	tmp = la->begin;
+	while (tmp)
+	{
+		tmp = pop_front_dlist(la);
+		free(tmp);
+	}
+	free(la);
 }
