@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 23:28:41 by vloth             #+#    #+#             */
-/*   Updated: 2022/10/11 14:30:46 by vloth            ###   ########.fr       */
+/*   Created: 2022/10/11 15:50:29 by engo              #+#    #+#             */
+/*   Updated: 2022/10/11 16:50:56 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "../includes/push_swap.h"
 
@@ -93,7 +95,12 @@ void	find_cost_b(t_dlist *stack_b)
 		if (tmpb->position < median)
 			tmpb->cost_b = tmpb->position;
 		else
-			tmpb->cost_b = tmpb->position - stack_b->len;
+		{
+			if (stack_b->len < 1)
+				tmpb->cost_b = tmpb->position * -1;
+			else
+				tmpb->cost_b = tmpb->position - stack_b->len;
+		}
 		tmpb = tmpb->next;
 	}
 }
@@ -110,7 +117,12 @@ void	find_cost_a(t_dlist *stack_a)
 		if (tmpa->position < median)
 			tmpa->cost_a = tmpa->position;
 		else
-			tmpa->cost_a = tmpa->position - stack_a->len;
+		{
+			if (stack_a->len < 1)
+				tmpa->cost_a = tmpa->position * -1;
+			else
+				tmpa->cost_a = tmpa->position - stack_a->len;
+		}
 		tmpa = tmpa->next;
 	}
 }

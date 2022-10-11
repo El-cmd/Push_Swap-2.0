@@ -83,13 +83,13 @@ test3:		$(NAME)
 
 test5:		$(NAME)	
 		$(eval ARG = $(shell shuf -i 0-50 -n 5))
-		./push_swap $(ARG) | ./checker_linux $(ARG)
+		 valgrind --leak-check=full ./push_swap $(ARG) | ./checker_linux $(ARG)
 		@echo -n "Instructions: "
 		@./push_swap $(ARG) | wc -l
 
 test100:	$(NAME)	
 		$(eval ARG = $(shell shuf -i 0-1000 -n 100))
-		./push_swap $(ARG) | ./checker_linux $(ARG)
+	    valgrind --leak-check=full ./push_swap $(ARG) | ./checker_linux $(ARG)
 		@echo -n "Instructions: "
 		@./push_swap $(ARG) | wc -l
 
