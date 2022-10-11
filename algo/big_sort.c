@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:28:41 by vloth             #+#    #+#             */
-/*   Updated: 2022/10/08 12:46:14 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/11 14:30:46 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	find_target(t_dlist *stack_a, t_dlist *stack_b)
 	tmpb = stack_b->begin;
 	while (tmpb)
 	{
-		while (find_target_sup(stack_a, tmpb))
+		while (find_target_sup(stack_a, tmpb) && tmpb->next)
 			tmpb = tmpb->next;
 		index_min = INT_MAX;
 		while (tmpa)
