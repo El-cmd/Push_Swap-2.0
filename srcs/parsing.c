@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:22:21 by engo              #+#    #+#             */
-/*   Updated: 2022/10/11 16:02:40 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/11 17:37:19 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ t_dlist	*pop_back_dlist(t_dlist *lst)
 	maj_position(lst);
 	return (lst);
 }
-
 
 t_node	*pop_front_dlist(t_dlist *l)
 {
