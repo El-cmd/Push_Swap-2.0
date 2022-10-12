@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:18:07 by engo              #+#    #+#             */
-/*   Updated: 2022/10/10 22:56:09 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/12 15:18:09 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	rra(t_dlist *stack_a, t_dlist *stack_b)
 {
-	int	tmp;
-	int	i;
+	int		i;
+	t_node	*t;
 
-	tmp = stack_a->end->value;
+
 	i = stack_a->end->index;
-	pop_back_dlist(stack_a);
-	push_front_dlist(stack_a, tmp);
+	t = pop_back_dlist(stack_a);
+	push_front_dlist(stack_a, t);
 	stack_a->begin->index = i;
 	find_target(stack_a, stack_b);
 	find_cost_a(stack_a);
@@ -30,13 +30,13 @@ void	rra(t_dlist *stack_a, t_dlist *stack_b)
 
 void	rrb(t_dlist *stack_a, t_dlist *stack_b)
 {
-	int	tmp;
-	int	i;
+	t_node	*t;
+	int		i;
 
-	tmp = stack_b->end->value;
+
 	i = stack_b->end->index;
-	pop_back_dlist(stack_b);
-	push_front_dlist(stack_b, tmp);
+	t = pop_back_dlist(stack_b);
+	push_front_dlist(stack_b, t);
 	stack_b->begin->index = i;
 	find_target(stack_a, stack_b);
 	find_cost_b(stack_b);
@@ -46,18 +46,16 @@ void	rrb(t_dlist *stack_a, t_dlist *stack_b)
 
 void	rrr(t_dlist *stack_a, t_dlist *stack_b)
 {
-	int	tmp;
-	int	i;
+	t_node	*t;
+	int		i;
 
-	tmp = stack_a->end->value;
 	i = stack_a->end->index;
-	pop_back_dlist(stack_a);
-	push_front_dlist(stack_a, tmp);
+	t = pop_back_dlist(stack_a);
+	push_front_dlist(stack_a, t);
 	stack_a->begin->index = i;
-	tmp = stack_b->end->value;
 	i = stack_b->end->index;
-	pop_back_dlist(stack_b);
-	push_front_dlist(stack_b, tmp);
+	t = pop_back_dlist(stack_b);
+	push_front_dlist(stack_b, t);
 	stack_b->begin->index = i;
 	find_target(stack_a, stack_b);
 	find_cost_a(stack_a);

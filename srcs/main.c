@@ -21,7 +21,7 @@ int	push_all_a(char **av, t_dlist *stack_a)
 	{
 		if (check_arg(av))
 			return (1);
-		push_back_dlist(stack_a, ft_atol(av[i]));
+		push_back_list_for_a(stack_a, ft_atol(av[i]));
 		stack_a->end->target_pos = -1;
 		stack_a->end->index = 0;
 		i++;
@@ -43,6 +43,24 @@ int	is_already_sorted(t_dlist *lst)
 	return (1);
 }
 
+void	main_s(t_dlist *stack_a, t_dlist *stack_b, int ac)
+{
+	if (ac == 3)
+		two_sort(stack_a, stack_b);
+	else if (ac == 4)
+		three_sort(stack_a, stack_b);
+	else if (ac == 5)
+		four_sort(stack_a, stack_b);
+	else if (ac == 6)
+		five_sort(stack_a, stack_b);
+	else
+	{
+		median_index(ac, stack_a, stack_b);
+		execution(stack_a, stack_b);
+		final(stack_a, stack_b);
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	all;
@@ -58,24 +76,13 @@ int	main(int ac, char **av)
 		return (-1);
 	check_duplicate(all.stack_a);
 	if (is_already_sorted(all.stack_a))
-		return (1);
-	assign_index(all.stack_a);
-	if (ac == 3)
-		two_sort(all.stack_a, all.stack_b);
-	else if (ac == 4)
-		three_sort(all.stack_a, all.stack_b);
-	else if (ac == 5)
-		four_sort(all.stack_a, all.stack_b);
-	else if (ac == 6)
-		five_sort(all.stack_a, all.stack_b);
-	else
 	{
-		median_index(ac, all.stack_a, all.stack_b);
-		execution(all.stack_a, all.stack_b);
-		final(all.stack_a, all.stack_b);
+		free_list(all.stack_a);
+		free_list(all.stack_b);
+		return (1);
 	}
-	//printlist(all.stack_a);
-	//printf("cout total = %d\n", all.stack_b->end->total_cost);
+	assign_index(all.stack_a);
+	main_s(all.stack_a, all.stack_b, ac);
 	free_list(all.stack_a);
 	free_list(all.stack_b);
 	exit(0);

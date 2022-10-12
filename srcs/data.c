@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 09:37:32 by engo              #+#    #+#             */
-/*   Updated: 2022/09/22 13:25:55 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/12 15:22:07 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,15 @@ t_dlist	*new_lst(void)
 	return (lst);
 }
 
-int	t_dlist_len(t_dlist *lst)
+int	is_empty_list(t_dlist *l)
 {
-	if (lst->len == 0)
-		return (0);
-	return (lst->len);
-}
+	int	i;
 
-int	t_dlist_first(t_dlist *lst)
-{
-	if (lst->len == 0)
-		exit(1);
-	return (lst->begin->value);
-}
-
-int	t_dlist_last(t_dlist *lst)
-{
-	if (lst->len == 0)
-		exit(1);
-	return (lst->end->value);
+	i = 0;
+	if (l->begin == NULL)
+	{
+		i++;
+		return (i);
+	}
+	return (0);
 }

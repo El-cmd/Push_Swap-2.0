@@ -14,14 +14,13 @@
 
 void	pa(t_dlist *stack_a, t_dlist *stack_b)
 {
-	int	i;
+	int		i;
+	t_node	*tmpb;
 
 	i = stack_b->begin->index;
-	if (stack_b->len == 0)
-		return ;
-	push_front_dlist(stack_a, stack_b->begin->value);
+	tmpb = pop_front_dlist(stack_b);
+	push_front_dlist(stack_a, tmpb);
 	stack_a->begin->index = i;
-	pop_front_dlist(stack_b);
 	find_target(stack_a, stack_b);
 	find_cost_a(stack_a);
 	find_cost_b(stack_b);
@@ -31,14 +30,13 @@ void	pa(t_dlist *stack_a, t_dlist *stack_b)
 
 void	pb(t_dlist *stack_a, t_dlist *stack_b)
 {
-	int	i;
+	int		i;
+	t_node	*tmpa;
 
 	i = stack_a->begin->index;
-	if (stack_a->len == 0)
-		return ;
-	push_front_dlist(stack_b, stack_a->begin->value);
+	tmpa = pop_front_dlist(stack_a);
+	push_front_dlist(stack_b, tmpa);
 	stack_b->begin->index = i;
-	pop_front_dlist(stack_a);
 	find_target(stack_a, stack_b);
 	find_cost_a(stack_a);
 	find_cost_b(stack_b);

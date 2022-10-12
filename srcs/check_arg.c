@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 01:58:32 by engo              #+#    #+#             */
-/*   Updated: 2022/09/29 16:04:58 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/12 16:00:30 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	check_duplicate(t_dlist *lst)
 	{
 		if (tmp->value == tmpp->value)
 		{
+			free_list(lst);
 			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}

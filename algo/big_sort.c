@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:50:29 by engo              #+#    #+#             */
-/*   Updated: 2022/10/11 17:37:40 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/12 15:55:05 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	median_index(int ac, t_dlist *stack_a, t_dlist *stack_b)
 	t_node	*tmp;
 	int		p;
 
+	p = 0;
 	i = (ac - 1) / 2;
 	tmp = stack_a->begin;
 	while (p < 3 && tmp)
