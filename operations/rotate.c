@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:31:34 by engo              #+#    #+#             */
-/*   Updated: 2022/10/12 15:19:40 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/12 16:35:27 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ra(t_dlist *stack_a, t_dlist *stack_b)
 {
 	t_node	*t;
-	int	i;
+	int		i;
 
 	i = stack_a->begin->index;
 	t = pop_front_dlist(stack_a);
