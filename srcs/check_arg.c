@@ -6,7 +6,7 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 01:58:32 by engo              #+#    #+#             */
-/*   Updated: 2022/10/12 16:00:30 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/12 16:48:47 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	check_isint(char *arg)
 	return (0);
 }
 
-void	check_duplicate(t_dlist *lst)
+void	check_duplicate(t_dlist *lst, t_dlist *lst_b)
 {
 	t_node	*tmp;
 	t_node	*tmpp;
@@ -50,6 +50,7 @@ void	check_duplicate(t_dlist *lst)
 		if (tmp->value == tmpp->value)
 		{
 			free_list(lst);
+			free_list(lst_b);
 			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}

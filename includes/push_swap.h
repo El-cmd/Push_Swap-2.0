@@ -71,7 +71,7 @@ int		check_isdigit(char *arg);
 int		check_isint(char *arg);
 int		check_double(char **str, int i);
 int		check_arg(char **tab);
-void	check_duplicate(t_dlist *lst);
+void	check_duplicate(t_dlist *lst, t_dlist *lst_b);
 
 int		push_all_a(char **av, t_dlist *stack_a);
 void	push_back_list_for_a(t_dlist *l, int x);

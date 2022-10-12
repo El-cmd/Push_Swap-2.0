@@ -74,7 +74,7 @@ int	main(int ac, char **av)
 		return (-1);
 	if (all.stack_a == NULL)
 		return (-1);
-	check_duplicate(all.stack_a);
+	check_duplicate(all.stack_a, all.stack_b);
 	if (is_already_sorted(all.stack_a))
 	{
 		free_list(all.stack_a);
