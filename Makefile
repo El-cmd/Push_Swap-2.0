@@ -64,7 +64,7 @@ test5:		$(NAME)
 	
 test100:	$(NAME)	
 		$(eval ARG = $(shell shuf -i 0-1000 -n 100))
-	    valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)
+	    valgrind ./push_swap $(ARG)
 
 test500:	$(NAME)	
 		$(eval ARG = $(shell shuf -i 0-2000 -n 500))
