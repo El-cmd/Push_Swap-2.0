@@ -23,7 +23,7 @@ int	is_already_sorted(t_dlist *lst)
 			return (0);
 		tmp = tmp->next;
 	}
-	exit(1);
+	return (1);
 }
 
 int	check_isdigit(char *arg)

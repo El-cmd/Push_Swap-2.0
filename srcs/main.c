@@ -48,7 +48,7 @@ int	main(int ac, char **av)
 	{
 		free_list(all.stack_a);
 		free_list(all.stack_b);
-		return (1);
+		exit(2);
 	}
 	assign_index(all.stack_a);
 	main_s(all.stack_a, all.stack_b, ac);
