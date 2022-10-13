@@ -12,20 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-void	printlist(t_dlist *str)
-{
-	t_node	*element;
-
-	if (!str)
-		return ;
-	element = str->begin;
-	while (element)
-	{
-		printf("%d\n", element->value);
-		element = element->next;
-	}
-}
-
 void	free_list(t_dlist *la)
 {
 	t_node	*tmp;

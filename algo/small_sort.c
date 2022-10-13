@@ -12,22 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-int	smallest_a(t_dlist *stack_a)
-{
-	t_node	*tmp;
-	int		i;
-
-	i = stack_a->begin->value;
-	tmp = stack_a->begin->next;
-	while (tmp)
-	{
-		if (tmp->value < i)
-			i = tmp->value;
-		tmp = tmp->next;
-	}
-	return (i);
-}
-
 void	four_sort(t_dlist *stack_a, t_dlist *stack_b)
 {
 	t_node	*tmp;

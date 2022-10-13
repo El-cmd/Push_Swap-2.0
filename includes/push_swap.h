@@ -51,7 +51,6 @@ void	push_back_dlist(t_dlist *lst, t_node *element);
 void	push_front_dlist(t_dlist *lst, t_node *element);
 
 t_dlist	*new_lst(void);
-void	printlist(t_dlist *str);
 int		is_empty_list(t_dlist *l);
 void	free_list(t_dlist *la);
 
@@ -72,6 +71,7 @@ int		check_isint(char *arg);
 int		check_double(char **str, int i);
 int		check_arg(char **tab);
 void	check_duplicate(t_dlist *lst, t_dlist *lst_b);
+int		is_already_sorted(t_dlist *lst);
 
 int		push_all_a(char **av, t_dlist *stack_a);
 void	push_back_list_for_a(t_dlist *l, int x);

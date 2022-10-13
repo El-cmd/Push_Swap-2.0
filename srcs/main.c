@@ -12,37 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-int	push_all_a(char **av, t_dlist *stack_a)
-{
-	int	i;
-
-	i = 1;
-	while (av[i])
-	{
-		if (check_arg(av))
-			return (1);
-		push_back_list_for_a(stack_a, ft_atol(av[i]));
-		stack_a->end->target_pos = -1;
-		stack_a->end->index = 0;
-		i++;
-	}
-	return (0);
-}
-
-int	is_already_sorted(t_dlist *lst)
-{
-	t_node	*tmp;
-
-	tmp = lst->begin;
-	while (tmp->next)
-	{
-		if (tmp->value > tmp->next->value)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
-}
-
 void	main_s(t_dlist *stack_a, t_dlist *stack_b, int ac)
 {
 	if (ac == 3)

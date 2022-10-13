@@ -12,6 +12,22 @@
 
 #include "../includes/push_swap.h"
 
+int	smallest_a(t_dlist *stack_a)
+{
+	t_node	*tmp;
+	int		i;
+
+	i = stack_a->begin->value;
+	tmp = stack_a->begin->next;
+	while (tmp)
+	{
+		if (tmp->value < i)
+			i = tmp->value;
+		tmp = tmp->next;
+	}
+	return (i);
+}
+
 t_node	*return_smallest(t_dlist *stack_a)
 {
 	t_node	*tmp;
@@ -58,28 +74,3 @@ void	five_sort(t_dlist *stack_a, t_dlist *stack_b)
 	pa(stack_a, stack_b);
 }
 
-void	final_execution(t_node *tmpa, t_node *tmpb, t_dlist *a, t_dlist *b)
-{
-	if (tmpb->cost_b == 0 && tmpa->cost_a < 0)
-		rra(a, b);
-	else if (tmpb->cost_b == 0 && tmpa->cost_a > 0)
-		ra(a, b);
-	else if (tmpb->cost_b < 0 && tmpa->cost_a == 0)
-		rrb(a, b);
-	else if (tmpb->cost_b > 0 && tmpa->cost_a == 0)
-		rb(a, b);
-	else if (tmpb->cost_b < 0 && tmpa->cost_a < 0)
-		rrr(a, b);
-	else if (tmpb->cost_b > 0 && tmpa->cost_a > 0)
-		rr(a, b);
-	else if (tmpb->cost_b < 0 && tmpa->cost_a > 0)
-	{
-		rrb(a, b);
-		ra(a, b);
-	}
-	else if (tmpb->cost_b > 0 && tmpa->cost_a < 0)
-	{
-		rb(a, b);
-		rra(a, b);
-	}
-}

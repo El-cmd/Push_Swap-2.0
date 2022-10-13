@@ -12,6 +12,20 @@
 
 #include "../includes/push_swap.h"
 
+int	is_already_sorted(t_dlist *lst)
+{
+	t_node	*tmp;
+
+	tmp = lst->begin;
+	while (tmp->next)
+	{
+		if (tmp->value > tmp->next->value)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
 int	check_isdigit(char *arg)
 {
 	int	i;

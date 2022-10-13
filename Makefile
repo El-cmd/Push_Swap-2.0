@@ -13,10 +13,10 @@ SRCS_LIBFT = ./LIBFT/ft_atol.c \
              ./LIBFT/ft_putstr_fd.c \
              ./LIBFT/ft_strlen.c \
 
-SRCS_PUSHSWAP =	./srcs/data.c \
+SRCS_PUSHSWAP =	./srcs/initialisation.c \
 		./srcs/main.c \
 		./srcs/parsing.c \
-		./srcs/parsing_2.c \
+		./srcs/free.c \
 		./operations/push.c \
 		./operations/rotate.c \
 		./operations/swap.c \
@@ -26,7 +26,8 @@ SRCS_PUSHSWAP =	./srcs/data.c \
         ./algo/five_sort.c \
         ./srcs/position.c \
         ./algo/big_sort.c \
-        ./algo/execution.c
+        ./algo/execution.c \
+		./algo/execution2.c
 
 OBJS_PUSHSWAP = ${SRCS_PUSHSWAP:.c=.o}
 

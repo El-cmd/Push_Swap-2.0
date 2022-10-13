@@ -98,29 +98,3 @@ t_node	*pop_front_dlist(t_dlist *l)
 	maj_position(l);
 	return (tmp);
 }
-
-void	push_back_list_for_a(t_dlist *l, int x)
-{
-	t_node	*element;
-
-	element = malloc(sizeof(*element));
-	if (!element)
-		return ;
-	element->value = x;
-	element->next = NULL;
-	element->back = NULL;
-	if (l->len == 0)
-	{
-		l->len = 0;
-		l->begin = element;
-		l->end = element;
-	}
-	else
-	{
-		l->end->next = element;
-		element->back = l->end;
-		l->end = element;
-	}
-	maj_position(l);
-	l->len++;
-}
