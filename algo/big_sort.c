@@ -94,12 +94,9 @@ void	find_cost_b(t_dlist *stack_b)
 		if (tmpb->position < median)
 			tmpb->cost_b = tmpb->position;
 		else
-		{
-			if (stack_b->len < 1)
+			if (stack_b->len > 1)
 				tmpb->cost_b = tmpb->position * -1;
-			else
-				tmpb->cost_b = tmpb->position - stack_b->len;
-		}
+		
 		tmpb = tmpb->next;
 	}
 }
@@ -117,7 +114,7 @@ void	find_cost_a(t_dlist *stack_a)
 			tmpa->cost_a = tmpa->position;
 		else
 		{
-			if (stack_a->len < 1)
+			if (stack_a->len > 1)
 				tmpa->cost_a = tmpa->position * -1;
 			else
 				tmpa->cost_a = tmpa->position - stack_a->len;

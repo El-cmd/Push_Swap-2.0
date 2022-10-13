@@ -23,7 +23,7 @@ int	is_already_sorted(t_dlist *lst)
 			return (0);
 		tmp = tmp->next;
 	}
-	return (1);
+	exit(1);
 }
 
 int	check_isdigit(char *arg)
@@ -36,7 +36,10 @@ int	check_isdigit(char *arg)
 	while (arg[i])
 	{
 		if (!(ft_isdigit(arg[i])))
-			return (1);
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
 		i++;
 	}
 	return (0);
@@ -48,7 +51,10 @@ int	check_isint(char *arg)
 
 	res = ft_atol(arg);
 	if (res > 2147483647 || res < -2147483648)
-		return (1);
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
 	return (0);
 }
 
@@ -87,8 +93,8 @@ int	check_arg(char **tab)
 	{
 		if (check_isdigit(tab[i]) == 1 || check_isint(tab[i]) == 1)
 		{
-			ft_putstr_fd("Error\n", 1);
-			return (1);
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
 		}
 		i++;
 	}

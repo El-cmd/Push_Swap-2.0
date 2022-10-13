@@ -68,4 +68,4 @@ test100:	$(NAME)
 
 test500:	$(NAME)	
 		$(eval ARG = $(shell shuf -i 0-2000 -n 500))
-		./push_swap $(ARG) | ./checker_linux $(ARG)
+		./push_swap $(ARG)
