@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:50:29 by engo              #+#    #+#             */
-/*   Updated: 2022/10/12 15:55:05 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/14 15:22:45 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,46 +37,40 @@ void	median_index(int ac, t_dlist *stack_a, t_dlist *stack_b)
 	three_sort(stack_a, stack_b);
 }
 
-int	find_target_sup(t_dlist *stack_a, t_node *tmpb)
+void	find_target_ff(t_dlist *stack_a, t_node *tmpb)
 {
 	t_node	*tmpa;
+	int		index_min;
 
-	tmpa = return_biggest(stack_a);
-	if (tmpa->index < tmpb->index)
+	tmpa = stack_a->begin;
+	index_min = INT_MAX;
+	while (tmpa)
 	{
-		tmpa = return_smallest(stack_a);
-		tmpb->target_pos = tmpa->position;
-		return (1);
+		if (tmpb->index < tmpa->index && tmpa->index < index_min)
+		{
+			tmpb->target_pos = tmpa->position;
+			index_min = tmpa->index;
+		}
+		tmpa = tmpa->next;
 	}
-	return (0);
 }
 
 void	find_target(t_dlist *stack_a, t_dlist *stack_b)
 {
 	t_node	*tmpa;
 	t_node	*tmpb;
-	int		index_min;
 
-	tmpa = stack_a->begin;
-	if (stack_b->len == 0)
-		return ;
 	tmpb = stack_b->begin;
 	while (tmpb)
 	{
-		while (find_target_sup(stack_a, tmpb) && tmpb->next)
-			tmpb = tmpb->next;
-		index_min = INT_MAX;
-		while (tmpa)
+		if (tmpb->value > biggest(stack_a))
 		{
-			if (tmpb->index < tmpa->index && tmpa->index < index_min)
-			{
-				tmpb->target_pos = tmpa->position;
-				index_min = tmpa->index;
-			}
-			tmpa = tmpa->next;
+			tmpa = return_smallest(stack_a);
+			tmpb->target_pos = tmpa->position;
 		}
+		else
+			find_target_ff(stack_a, tmpb);
 		tmpb = tmpb->next;
-		tmpa = stack_a->begin;
 	}
 }
 

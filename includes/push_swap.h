@@ -87,6 +87,7 @@ void	final(t_dlist *stack_a, t_dlist *stack_b);
 
 t_node	*return_smallest(t_dlist *stack_a);
 t_node	*return_biggest(t_dlist *stack_a);
+int		biggest(t_dlist *stack_a);
 int		smallest_a(t_dlist *stack_a);
 void	maj_position(t_dlist *stack_a);
 void	assign_index(t_dlist *sa);
