@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   five_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:24:11 by engo              #+#    #+#             */
-/*   Updated: 2022/10/12 16:33:22 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/14 15:23:51 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,3 @@ void	five_sort(t_dlist *stack_a, t_dlist *stack_b)
 	four_sort(stack_a, stack_b);
 	pa(stack_a, stack_b);
 }
-
