@@ -6,11 +6,11 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:14:40 by engo              #+#    #+#             */
-/*   Updated: 2022/10/12 16:33:33 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/19 12:47:11 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	four_sort(t_dlist *stack_a, t_dlist *stack_b)
 {

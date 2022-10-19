@@ -6,11 +6,11 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:12:15 by engo              #+#    #+#             */
-/*   Updated: 2022/10/12 12:37:18 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/19 12:48:11 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	maj_position(t_dlist *stack_a)
 {

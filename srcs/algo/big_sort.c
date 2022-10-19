@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:50:29 by engo              #+#    #+#             */
-/*   Updated: 2022/10/14 15:22:45 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/19 12:46:51 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	median_index(int ac, t_dlist *stack_a, t_dlist *stack_b)
 {

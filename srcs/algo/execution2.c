@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   execution2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:00:53 by engo              #+#    #+#             */
-/*   Updated: 2022/10/14 15:22:22 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/19 12:47:01 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	final_execution(t_node *tmpa, t_node *tmpb, t_dlist *a, t_dlist *b)
 {

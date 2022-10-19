@@ -6,11 +6,11 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:22:21 by engo              #+#    #+#             */
-/*   Updated: 2022/10/12 16:34:53 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/19 12:48:03 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	push_back_dlist(t_dlist *l, t_node *element)
 {

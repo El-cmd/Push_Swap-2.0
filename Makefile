@@ -3,47 +3,67 @@ CFLAGS = -Wall -Wextra -Werror -g
 NAME =	push_swap
 LIBFT = ./LIBFT/MAKEFILE
 
-SRCS_LIBFT = ./LIBFT/ft_atol.c \
-             ./LIBFT/ft_isascii.c \
-             ./LIBFT/ft_isalpha.c \
-             ./LIBFT/ft_isdigit.c \
-             ./LIBFT/ft_isalnum.c \
-             ./LIBFT/ft_isprint.c \
-             ./LIBFT/ft_putchar_fd.c \
-             ./LIBFT/ft_putstr_fd.c \
-             ./LIBFT/ft_strlen.c \
+DIR_INC = -I ./includes/
 
-SRCS_PUSHSWAP =	./srcs/initialisation.c \
-		./srcs/main.c \
-		./srcs/parsing.c \
-		./srcs/free.c \
-		./operations/push.c \
-		./operations/rotate.c \
-		./operations/swap.c \
-		./operations/reverse.c \
-		./algo/small_sort.c \
-        ./srcs/check_arg.c \
-        ./algo/five_sort.c \
-        ./srcs/position.c \
-        ./algo/big_sort.c \
-        ./algo/execution.c \
-		./algo/execution2.c
+LIBFT_DIR = ./LIBFT
 
-OBJS_PUSHSWAP = ${SRCS_PUSHSWAP:.c=.o}
+SRCS_LIBFT = ft_atol.c \
+             ft_isascii.c \
+             ft_isalpha.c \
+             ft_isdigit.c \
+             ft_isalnum.c \
+             ft_isprint.c \
+             ft_putchar_fd.c \
+             ft_putstr_fd.c \
+             ft_strlen.c \
 
-OBJS_LIBFT = ${SRCS_LIBFT:.c=.o}
+SRCS_PUSHSWAP =	initialisation.c \
+		main.c \
+		parsing.c \
+		free.c \
+		operations/push.c \
+		operations/rotate.c \
+		operations/swap.c \
+		operations/reverse.c \
+		algo/small_sort.c \
+        check_arg.c \
+        algo/five_sort.c \
+        position.c \
+        algo/big_sort.c \
+        algo/execution.c \
+		algo/execution2.c
 
+SRCS_DIR = ./srcs
+
+DIR_OBJ = 	obj
+
+OBJS_PUSHSWAP = $(addprefix $(DIR_OBJ)/, ${SRCS_PUSHSWAP:.c=.o})
+
+OBJS_LIBFT = 	$(addprefix $(DIR_OBJ)/, ${SRCS_LIBFT:.c=.o})
+
+DEPS = $(OBJS_PUSHSWAP:.o=.d)
+
+DEPS_LIBFT = $(OBJS_LIBFT:.o=.d)
+
+
+-include $(DEPS)
+-include $(DEPS_LIBFT)
 
 all:	${NAME}
+		make -c $(LIBFT_DIR)
 
 ${NAME}: ${OBJS_PUSHSWAP} ${OBJS_LIBFT}
-		${CC} ${OBJS_PUSHSWAP} ${OBJS_LIBFT} -o ${NAME}
+		${CC} $(DIR_INC) ${OBJS_PUSHSWAP} ${OBJS_LIBFT} -o ${NAME}
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+$(DIR_OBJ)/%.o: $(SRCS_DIR)/%.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(DIR_INC) -c -o $@ $< -MMD
+
+$(DIR_OBJ)/%.o: $(LIBFT_DIR)/%.c
+	$(CC) $(CFLAGS) $(DIR_INC) -c -o $@ $< -MMD
 
 clean:
-	rm -f ${OBJS_LIBFT} ${OBJS_PUSHSWAP}
+	rm -rf ${OBJS_LIBFT} ${DIR_OBJ}
 
 fclean: clean
 	rm -f ${NAME}

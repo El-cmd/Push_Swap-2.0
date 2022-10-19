@@ -6,11 +6,11 @@
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:05:53 by engo              #+#    #+#             */
-/*   Updated: 2022/10/11 16:33:37 by engo             ###   ########.fr       */
+/*   Updated: 2022/10/19 12:46:56 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 t_node	*find_peer(t_node *tmpb, t_dlist *stack_a)
 {

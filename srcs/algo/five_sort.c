@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   five_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:24:11 by engo              #+#    #+#             */
-/*   Updated: 2022/10/14 15:23:51 by vloth            ###   ########.fr       */
+/*   Updated: 2022/10/19 12:47:06 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 int	smallest_a(t_dlist *stack_a)
 {
