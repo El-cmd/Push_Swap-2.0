@@ -50,7 +50,7 @@ DEPS_LIBFT = $(OBJS_LIBFT:.o=.d)
 -include $(DEPS_LIBFT)
 
 all:	${NAME}
-		make -c $(LIBFT_DIR)
+		make $(LIBFT_DIR)
 
 ${NAME}: ${OBJS_PUSHSWAP} ${OBJS_LIBFT}
 		${CC} $(DIR_INC) ${OBJS_PUSHSWAP} ${OBJS_LIBFT} -o ${NAME}
